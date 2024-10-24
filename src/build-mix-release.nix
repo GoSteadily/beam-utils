@@ -128,6 +128,7 @@ stdenv.mkDerivation (
           # Compilation of the dependencies requires that the dependency is
           # writable, thus a copy to deps/.
           cp -r --no-preserve=mode "${mixDeps}/deps" deps
+          cp -r --no-preserve=mode "${mixDeps}/_build" _build
         ''}
 
         mix deps.compile --skip-umbrella-children

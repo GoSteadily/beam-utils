@@ -87,6 +87,7 @@ stdenvNoCC.mkDerivation (
         mkdir -p $out
 
         mix deps.get --only $MIX_ENV
+        mix deps.compile --skip-umbrella-children
 
         # 1. To make Elixir deps checking work as expected, .git should be a
         #    valid git repository. So, you can't just remove .git or the necessary
@@ -114,6 +115,7 @@ stdenvNoCC.mkDerivation (
         cp --no-preserve=mode,ownership,timestamps mix.exs $out
         cp --no-preserve=mode,ownership,timestamps mix.lock $out
         cp --no-preserve=mode,ownership,timestamps -r deps $out
+        cp --no-preserve=mode,ownership,timestamps -r _build $out
 
         runHook postInstall
       '';
