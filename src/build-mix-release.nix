@@ -131,7 +131,7 @@ stdenv.mkDerivation (
           cp -r --no-preserve=mode "${mixDeps}/_build" _build
         ''}
 
-        mix deps.compile --skip-umbrella-children
+        # mix deps.compile --skip-umbrella-children
 
         runHook postConfigure
       '';
